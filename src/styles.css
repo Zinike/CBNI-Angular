@@ -1,0 +1,725 @@
+/*   IMPORTACIONES   */
+@import url('https://fonts.googleapis.com/css2?family=Cinzel&display=swap');
+
+/*   PRE-LOADER   */
+.preloader {
+  background: url(/src/assets/images/loader.gif) no-repeat center center;
+  background-size: cover;
+  height: 100vh;
+  width: 100%;
+  position: fixed;
+  z-index: 1000000;
+  text-shadow: #7a7a7a 4px 3px 0px;
+}
+
+.preloader h2 {
+  position: relative;
+  top: 60%;
+}
+
+/*   GENERAL   */
+html::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+  display: none;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  scroll-behavior: smooth;
+  font-family: 'Cinzel', serif;
+}
+
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+  background-color: #111;
+}
+
+body {
+  cursor: url(/src/assets/images/cursor.png), auto;
+}
+
+/*   MOBILE   */
+@media screen and (max-width: 767px) {
+  h1 {
+    color: #ffc85e;
+    text-align: center;
+    text-decoration: none;
+    font-size: 8em;
+  }
+
+  h2 {
+    color: #ffc85e;
+    text-align: center;
+    text-decoration: none;
+    font-size: 1.5em;
+  }
+
+  h3 {
+    color: #ffc85e;
+    text-align: center;
+    text-decoration: none;
+    font-size: 1em;
+  }
+
+  h6 {
+    color: #ffc85e;
+    text-align: center;
+    text-decoration: none;
+    font-size: .75em;
+  }
+
+  p, q {
+    color: #ffc85e;
+    text-align: center;
+    text-decoration: none;
+    font-size: 0.5em;
+  }
+
+  ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+  }
+
+  a {
+    display: flex;
+    justify-content: center;
+    color: #ffc85e;
+    font-size: .75em;
+    list-style: none;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 500ms;
+    cursor: url(/src/assets/images/casa.png), auto;
+  }
+
+  a:hover {
+    color: #FF00FF;
+  }
+
+  header {
+    position: fixed;
+    z-index: 100;
+    background-color: #000;
+    height: 10vh;
+    width: 100%;
+  }
+
+  header .contenedor {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    height: 10vh;
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+
+  header .contenedor .logo {
+    height: 9vh;
+    padding: 0;
+  }
+
+  header .contenedor .menu_icon {
+    display: flex;
+    cursor: pointer;
+    height: 6vh;
+    width: 6vh;
+  }
+
+  header .contenedor .menu {
+    height: 0px;
+    border-radius: 15px;
+    position: absolute;
+    right: 10vw;
+    top: 10vh;
+    overflow: hidden;
+    z-index: 100;
+    box-shadow: 0px 0px 30px -20px #fff;
+    transition: all 300ms;
+  }
+
+  header .contenedor .menu ul {
+    flex-direction: column;
+    padding: 10px 0px 10px 0px;
+    background: #ffc85e;
+  }
+
+  header .contenedor .menu a {
+    padding: 5px 15px;
+    text-decoration: none;
+    font-weight: bold;
+    color: #000;
+    transition: color 500ms;
+  }
+
+  header .contenedor .menu.mostrar_menu {
+    height: 90px;
+  }
+
+  #hero {
+    height: 50vh;
+  }
+
+  #hero video {
+    height: 50%;
+    width: 100%;
+    object-fit: cover;
+    object-position: left;
+    position: absolute;
+    top: 0;
+  }
+
+  #nosotros {
+    height: 60vh;
+    width: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  #nosotros h2 {
+    padding: 10px;
+  }
+
+  #propiedades h2 {
+    margin-bottom: 50px;
+  }
+
+  #propiedades .contenedor {
+    width: auto;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    background-color: #999;
+  }
+
+  #propiedades .contenedor .card {
+    display: flex;
+    flex-wrap: wrap;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+  }
+
+  #propiedades .contenedor .card .tarjeta {
+    position: relative;
+    overflow: hidden;
+    height: 300px;
+    width: 200px;
+    max-height: 600px;
+    max-width: 400px;
+    margin: 15px;
+    border-radius: 8px;
+    transition: all 500ms;
+  }
+
+  #propiedades .contenedor .card .tarjeta .face {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 8px;
+    overflow: hidden;
+    transition: 500ms;
+  }
+
+  #propiedades .contenedor .card .tarjeta .front {
+    transform: perspective(400px) rotateY(0deg);
+  }
+
+  #propiedades .contenedor .card .tarjeta .front img {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  #propiedades .contenedor .card .tarjeta .front h4 {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 20%;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-content: center;
+    background: rgba(0, 0, 0, .5);
+  }
+
+  #propiedades .contenedor .card .tarjeta .back {
+    transform: perspective(400px) rotateY(180deg);
+    background: #444;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    text-align: center;
+  }
+
+  #propiedades .contenedor .card .tarjeta .back img {
+    filter: blur(4px);
+    position: relative;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  #propiedades .contenedor .card .tarjeta .back h4 {
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    top: 0;
+    color: #000;
+    margin-top: 10px;
+  }
+
+  #propiedades .contenedor .card .tarjeta .back p {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    margin: 10px 0;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+    border-top: solid 1px #000;
+    font-size: .9rem;
+    color: #000;
+    top: 30%;
+  }
+
+  #propiedades .contenedor .card .tarjeta .back h3 {
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    bottom: 0;
+    /*COLOR DOLAR PARA HACER LINDO DINERO*/
+    color: #85BB65;
+    text-shadow: 1px 1px #000;
+    margin-bottom: 10%;
+  }
+
+  #propiedades .contenedor .card .tarjeta:hover {
+    transform: scale(1.75);
+    z-index: 1000;
+  }
+
+  #propiedades .contenedor .card .tarjeta:hover .front {
+    transform: perspective(400px) rotateY(180deg);
+  }
+
+  #propiedades .contenedor .card .tarjeta:hover .back {
+    transform: perspective(400px) rotateY(360deg);
+  }
+
+  #contacto {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 70vh;
+  }
+
+  #contacto .contenedor {
+    display: flex;
+    justify-content: center;
+  }
+
+  #contacto .contenedor ul {
+    display: flex;
+    flex-direction: column;
+  }
+
+  #contacto .contenedor ul .telefono {
+    display: flex;
+    flex-direction: column;
+    padding: 10px 0 15px 0;
+  }
+
+  #contacto .contenedor ul .telefono .Yuli {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  #contacto .contenedor ul .telefono .Malcom {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  #contacto .contenedor ul .redes {
+    display: flex;
+    flex-direction: column;
+    padding: 10px 0 15px 0;
+  }
+
+  #contacto .contenedor ul .redes .instagram {
+    padding: 7px 0 7px 0;
+  }
+
+  #contacto .contenedor ul .redes .whatsapp {
+    padding: 7px 0 7px 0;
+  }
+
+  footer {
+    padding: 10px 0 10px 0;
+    background-color: #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+/*   DESKTOP   */
+@media screen and (min-width: 768px) {
+  h1 {
+    color: #ffc85e;
+    text-align: center;
+    text-decoration: none;
+    font-size: 8em;
+  }
+
+  h2 {
+    color: #ffc85e;
+    text-align: center;
+    text-decoration: none;
+    font-size: 2em;
+  }
+
+  h3 {
+    color: #ffc85e;
+    text-align: center;
+    text-decoration: none;
+    font-size: 1.25em;
+  }
+
+  h4 {
+    color: #ffc85e;
+    text-align: center;
+    text-decoration: none;
+    font-size: 1.15em;
+  }
+
+  h6 {
+    color: #ffc85e;
+    text-align: center;
+    text-decoration: none;
+    font-size: 0.5em;
+  }
+
+  p {
+    color: #ffc85e;
+    text-align: center;
+    text-decoration: none;
+    font-size: 0.75em;
+  }
+
+  q {
+    color: #ffc85e;
+    text-align: center;
+    text-decoration: none;
+    font-size: 1rem;
+  }
+
+  ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+  }
+
+  a {
+    display: flex;
+    justify-content: center;
+    color: #ffc85e;
+    font-size: 1em;
+    list-style: none;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 500ms;
+    cursor: url(/src/assets/images/casa.png), auto;
+  }
+
+  a:hover {
+    color: #FF00FF;
+  }
+
+  header {
+    position: fixed;
+    z-index: 100;
+    background-color: #000;
+    height: 10vh;
+    width: 100%;
+  }
+
+  header .contenedor {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-left: 100px;
+    margin-right: 100px;
+  }
+
+  header .contenedor .logo {
+    height: 10vh;
+  }
+
+  header .contenedor .menu_icon {
+    display: none;
+  }
+
+  header .contenedor .menu ul {
+    flex-direction: row;
+  }
+
+  header .contenedor .menu a {
+    padding: 0px 10px 0px 10px;
+  }
+
+  header .contenedor .menu .mostrar_menu {
+    height: 90px;
+  }
+
+  #hero {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-end;
+    height: 100vh;
+    width: 100vw;
+  }
+
+  #hero video {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    object-position: left;
+    position: absolute;
+    top: 0;
+  }
+
+  #nosotros {
+    height: 60vh;
+    width: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  #nosotros h2 {
+    padding: 0 0 25px 0;
+  }
+
+  #propiedades {
+    display: flex;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    flex-direction: column;
+    height: auto;
+    width: 100vw;
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+
+  #propiedades .contenedor {
+    background-color: rgba(255, 255, 255, 0.75);
+    border-radius: 15px;
+    margin: 50px;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  #propiedades .contenedor h4,
+  #propiedades .contenedor a {
+    color: #222;
+    font-size: 1.5rem;
+  }
+
+  #propiedades .contenedor .card {
+    display: flex;
+    flex-wrap: wrap;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    background: #777;
+  }
+
+  #propiedades .contenedor .card .tarjeta {
+    position: relative;
+    overflow: hidden;
+    height: 300px;
+    width: 200px;
+    max-height: 600px;
+    max-width: 400px;
+    margin: 15px;
+    border-radius: 8px;
+    transition: all 500ms;
+  }
+
+  #propiedades .contenedor .card .tarjeta .face {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 8px;
+    overflow: hidden;
+    transition: 500ms;
+  }
+
+  #propiedades .contenedor .card .tarjeta .front {
+    transform: perspective(400px) rotateY(0deg);
+  }
+
+  #propiedades .contenedor .card .tarjeta .front img {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  #propiedades .contenedor .card .tarjeta .front h4 {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 20%;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-content: center;
+    color: black;
+    background: rgba(0, 0, 0, .5);
+  }
+
+  #propiedades .contenedor .card .tarjeta .back {
+    transform: perspective(400px) rotateY(180deg);
+    background: #444;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    text-align: center;
+  }
+
+  #propiedades .contenedor .card .tarjeta .back img {
+    filter: blur(4px);
+    position: relative;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  #propiedades .contenedor .card .tarjeta .back h4 {
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    top: 0;
+    color: #000;
+    margin-top: 10px;
+  }
+
+  #propiedades .contenedor .card .tarjeta .back p {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    margin: 10px 0;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+    border-top: solid 1px #000;
+    font-size: .9rem;
+    color: #000;
+    top: 30%;
+  }
+
+  #propiedades .contenedor .card .tarjeta .back h3 {
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    bottom: 0;
+    /*COLOR DOLAR PARA HACER LINDO DINERO*/
+    color: #85BB65;
+    text-shadow: 1px 1px #000;
+    margin-bottom: 10%;
+  }
+
+  #propiedades .contenedor .card .tarjeta:hover {
+    transform: scale(1.75);
+    z-index: 1000;
+  }
+
+  #propiedades .contenedor .card .tarjeta:hover .front {
+    transform: perspective(400px) rotateY(180deg);
+  }
+
+  #propiedades .contenedor .card .tarjeta:hover .back {
+    transform: perspective(400px) rotateY(360deg);
+  }
+
+  #contacto {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 60vh;
+  }
+
+  #contacto .contenedor {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  #contacto .contenedor ul {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  #contacto .contenedor ul .telefono {
+    display: flex;
+    flex-direction: column;
+    padding: 10px 0;
+  }
+
+  #contacto .contenedor ul .redes {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px 0;
+  }
+
+  .button {
+    margin: 5px;
+    padding: 5px;
+    color: #ffc85e;
+    background-color: #444;
+    border-radius: 5px;
+    transition: all 500ms;
+    cursor: pointer;
+  }
+
+  .button:hover {
+    transform: scale(1.1);
+    background-color: #777;
+  }
+
+  .button:active {
+    transform: scale(1.05);
+    background-color: #666;
+  }
+
+  footer {
+    padding: 10px 0 10px 0;
+    background-color: #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}

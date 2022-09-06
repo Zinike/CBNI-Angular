@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>CBNI</title>
+  <base href="/">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+</head>
+<body>
+
+  <div id="preloader" class="preloader">
+    <h2>FAVOR DE ESPERAR</h2>
+  </div>
+
+
+  <app-root></app-root>
+
+
+  <script src="mostrarMenu.js"></script>
+
+  <script type="text/javascript">
+    var loader = document.getElementById("preloader");
+    window.addEventListener("load", function() {
+      loader.style.display = "none";
+    })
+  </script>
+</body>
+</html>
